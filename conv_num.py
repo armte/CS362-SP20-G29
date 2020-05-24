@@ -41,10 +41,14 @@ def get_dec(str_num):
 
 
 def num_type(str_num):
+    # check if string is in proper decimal point format
     dec_check = re.split(r'\.', str_num)
+    # if the num string has only 1 decimal point
     if len(dec_check) == 2:
-        for i in range(len(dec_check)):
-            if not dec_check[i].isdecimal():
+        for digit in dec_check:
+            # check that string on both sides of decimal point
+            # is not empty and numeric
+            if digit and not digit.isdecimal():
                 return None
         return NumType.DEC
     elif str_num.isdecimal():
