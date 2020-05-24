@@ -2,10 +2,12 @@ import constant
 import re
 from enum import Enum
 
+
 class NumType(Enum):
     INT = 0
     DEC = 1
     HEX = 2
+
 
 def conv_num(str_num):
     if len(str_num) > 0:
@@ -16,12 +18,14 @@ def conv_num(str_num):
             return get_int(str_num)
     return None
 
+
 def get_int(str_num):
     int_num = 0
     for digit in str_num:
         int_num *= 10
         int_num += (ord(digit) % constant.ASCII_0)
     return int_num
+
 
 def get_dec(str_num):
     int_frac = re.split('\.', str_num)

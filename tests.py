@@ -1,10 +1,12 @@
 import unittest
 from conv_num import conv_num
 
+
 class TestCase(unittest.TestCase):
 
     def test1(self):
         self.assertTrue(True)
+
 
 class TestConvNum(unittest.TestCase):
 
