@@ -19,8 +19,8 @@ class TestConvNum(unittest.TestCase):
         self.assertEqual(conv_num(val), expected)
 
     def test3(self):
-        val = '10.0'
-        expected = 10.0
+        val = '117.3446'
+        expected = 117.3446
         self.assertEqual(conv_num(val), expected)
 
 
