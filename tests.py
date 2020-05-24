@@ -18,6 +18,11 @@ class TestConvNum(unittest.TestCase):
         expected = 10
         self.assertEqual(conv_num(val), expected)
 
+    def test3(self):
+        val = '10.0'
+        expected = 10.0
+        self.assertEqual(conv_num(val), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
