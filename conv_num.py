@@ -64,7 +64,7 @@ def conv_hex(hex_match):
 def num_type(str_num):
     # check if string is in proper decimal point format
     # dec_check = re.split(r'\.', str_num)
-    dec_match = re.match(r'(?P<int>\d*)\.(?P<frac>\d*)', str_num)
+    dec_match = re.match(r'(?P<int>\d*)\.(?P<frac>\d*$)', str_num)
     if dec_match:
         # check that at least one side of decimal point is not empty
         empty = True
@@ -73,7 +73,7 @@ def num_type(str_num):
                 empty = False
         return (NumType.DEC, dec_match) if not empty else None
     # check if string is in the proper hexadecimal format
-    hex_match = re.match(r'0x(?P<hvals>[A-F0-9]+)', str_num)
+    hex_match = re.match(r'0x(?P<hvals>[A-F0-9]+$)', str_num)
     if hex_match:
         return NumType.HEX, hex_match
     if str_num.isdecimal():
