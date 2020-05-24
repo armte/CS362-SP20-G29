@@ -28,7 +28,7 @@ def get_int(str_num):
 
 
 def get_dec(str_num):
-    int_frac = re.split('\.', str_num)
+    int_frac = re.split(r'\.', str_num)
     frac_str = int_frac[1]
     exp = -1
     fraction = 0.0
@@ -41,7 +41,7 @@ def get_dec(str_num):
 
 
 def num_type(str_num):
-    dec_check = re.split('\.', str_num)
+    dec_check = re.split(r'\.', str_num)
     if len(dec_check) == 2:
         for i in range(len(dec_check)):
             if not dec_check[i].isdecimal():
