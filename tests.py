@@ -62,7 +62,7 @@ class TestConvNum(unittest.TestCase):
 
     def test11(self):
         val = '0xAd4'
-        expected = None
+        expected = 2772
         self.assertEqual(conv_num(val), expected)
 
 

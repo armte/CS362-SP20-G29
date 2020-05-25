@@ -56,6 +56,7 @@ def conv_hex(hex_match):
         if hex_val.isdecimal():
             num = ord(hex_val) % constant.ASCII_0
         else:
+            hex_val = hex_val.upper()
             num = ord(hex_val) % constant.ASCII_A10
         int_num += num
     return int_num
@@ -73,7 +74,7 @@ def num_type(str_num):
                 empty = False
         return (NumType.DEC, dec_match) if not empty else None
     # check if string is in the proper hexadecimal format
-    hex_match = re.match(r'0x(?P<hvals>[A-F0-9]+$)', str_num)
+    hex_match = re.match(r'0x(?P<hvals>[0-9a-fA-F]+$)', str_num)
     if hex_match:
         return NumType.HEX, hex_match
     if str_num.isdecimal():
