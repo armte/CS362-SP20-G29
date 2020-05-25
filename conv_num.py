@@ -1,3 +1,15 @@
+# CS 362: Software Engineering II
+# Group 29: Tommy Armstrong, Oliver Solorzano, Andre Pestovski
+# Assignment: Group Project - Part 2
+# Description: This file contains the code implementation for function 1,
+# 'conv_num'. This function acts as a number converter, taking in string
+# representations of numbers in any one of the three formats: integer,
+# decimal point or hexadecimal and returning the decimal value as either an
+# integer or float datatype value. Negative numbers are accepted and there
+# is no case sensitivity regarding numbers in hexadecimal format.
+# Contribution: Tommy Armstrong
+# ***************************************************************************
+
 import constant
 import re
 from enum import Enum
@@ -47,7 +59,7 @@ def conv_dec(dec_match):
         fraction += (num * 10**exp)
         exp -= 1
     dec_num = conv_int(dec_match)
-    if dec_num < 0:
+    if dec_match.group('sign') == '-':
         dec_num -= fraction
     else:
         dec_num += fraction
@@ -78,7 +90,7 @@ def num_type(str_num):
         # check that at least one side of decimal point is not empty
         empty = True
         for dec_val in dec_match.groups():
-            if dec_val:
+            if dec_val and dec_val.isdecimal():
                 empty = False
         return (NumType.DEC, dec_match) if not empty else None
     # check if string is in the acceptable hexadecimal format
