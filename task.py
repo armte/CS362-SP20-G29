@@ -54,11 +54,8 @@ def conv_num(str_num):
     return None
 
 
-# returns the type of numeric format the input string is in along with the
-# matching characters representing the numeric values if the input string
-# matches one of the 3 acceptable numeric formats, otherwise it returns None
 # See the regular expression references in the file header for detailed
-# explanation of the re syntax and the re.match function.
+# explanation on re syntax and re.match() in function below
 def num_type(str_num):
     """Analyzes the input string to see if it matches any of the acceptable
     numeric formats: whole number, decimal point or hexadecimal. If so,
