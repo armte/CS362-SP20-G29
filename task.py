@@ -1,13 +1,21 @@
 # CS 362: Software Engineering II
 # Group 29: Tommy Armstrong, Oliver Solorzano, Andre Pestovski
 # Assignment: Group Project - Part 2
-# Description: This file contains the code implementation for function 1,
-# 'conv_num'. This function acts as a number converter, taking in string
+# Description: This file contains the code implementation for the functions:
+# conv_num, my_datetime, and conv_endian along with any helper functions.
+# Function conv_num: acts as a number converter, taking in string
 # representations of numbers in any one of the three formats: integer,
 # decimal point or hexadecimal and returning the decimal value as either an
 # integer or float datatype value. Negative numbers are accepted and there
 # is no case sensitivity regarding numbers in hexadecimal format.
-# Contribution: Tommy Armstrong
+# Contributions:
+#   Tommy Armstrong - function 1 (conv_num)
+# References:
+# regular expression implementation:
+#   re syntax:
+#   https://docs.python.org/3/library/re.html#regular-expression-syntax
+#   re match function:
+#   https://docs.python.org/2.0/lib/match-objects.html
 # ***************************************************************************
 
 import constant
@@ -15,6 +23,8 @@ import re
 from enum import Enum
 
 
+# This enum class and its values serve to identify the three different number
+# formats an input string can be in: integer, decimal point or hexadecimal
 class NumType(Enum):
     INT = 0
     DEC = 1
@@ -36,6 +46,34 @@ def conv_num(str_num):
                 return conv_hex(str_match)
             if str_type == NumType.INT:
                 return conv_int(str_match)
+    return None
+
+
+# returns the type of numeric format the input string is in along with the
+# matching characters representing the numeric values if the input string
+# matches one of the 3 acceptable numeric formats, otherwise it returns None
+# See the regular expression references in the file header for detailed
+# explanation of the re syntax and the re.match function.
+def num_type(str_num):
+    # check if string is in acceptable decimal point format
+    dec_match = re.match(r'(?P<sign>-*)(?P<int>\d*)\.(?P<frac>\d*$)',
+                         str_num, re.ASCII)
+    if dec_match:
+        # check that at least one side of decimal point is not empty
+        empty = True
+        for dec_val in dec_match.groups():
+            if dec_val and dec_val.isdecimal():
+                empty = False
+        return (NumType.DEC, dec_match) if not empty else None
+    # check if string is in the acceptable hexadecimal format
+    hex_match = re.match(r'(?P<sign>-*)0x(?P<hvals>[0-9a-fA-F]+$)',
+                         str_num, re.ASCII)
+    if hex_match:
+        return NumType.HEX, hex_match
+    # check if string is in the acceptable integer format
+    int_match = re.match(r'(?P<sign>-*)(?P<int>\d+$)', str_num, re.ASCII)
+    if int_match:
+        return NumType.INT, int_match
     return None
 
 
@@ -80,26 +118,3 @@ def conv_hex(hex_match):
     if hex_match.group('sign') == '-':
         int_num *= -1
     return int_num
-
-
-def num_type(str_num):
-    # check if string is in acceptable decimal point format
-    dec_match = re.match(r'(?P<sign>-*)(?P<int>\d*)\.(?P<frac>\d*$)',
-                         str_num, re.ASCII)
-    if dec_match:
-        # check that at least one side of decimal point is not empty
-        empty = True
-        for dec_val in dec_match.groups():
-            if dec_val and dec_val.isdecimal():
-                empty = False
-        return (NumType.DEC, dec_match) if not empty else None
-    # check if string is in the acceptable hexadecimal format
-    hex_match = re.match(r'(?P<sign>-*)0x(?P<hvals>[0-9a-fA-F]+$)',
-                         str_num, re.ASCII)
-    if hex_match:
-        return NumType.HEX, hex_match
-    # check if string is in the acceptable integer format
-    int_match = re.match(r'(?P<sign>-*)(?P<int>\d+$)', str_num, re.ASCII)
-    if int_match:
-        return NumType.INT, int_match
-    return None
