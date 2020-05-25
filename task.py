@@ -2,20 +2,22 @@
 # Group 29: Tommy Armstrong, Oliver Solorzano, Andre Pestovski
 # Assignment: Group Project - Part 2
 # Description: This file contains the code implementation for the functions:
-# conv_num, my_datetime, and conv_endian along with any helper functions.
+# conv_num, my_datetime, and conv_endian along with their helper functions.
 # Function conv_num: acts as a number converter, taking in string
 # representations of numbers in any one of the three formats: integer,
 # decimal point or hexadecimal and returning the decimal value as either an
 # integer or float datatype value. Negative numbers are accepted and there
 # is no case sensitivity regarding numbers in hexadecimal format.
 # Contributions:
-#   Tommy Armstrong - function 1 (conv_num)
+#   Tommy Armstrong - conv_num function and its associated code/functions
 # References:
 # regular expression implementation:
 #   re syntax:
 #   https://docs.python.org/3/library/re.html#regular-expression-syntax
 #   re match function:
 #   https://docs.python.org/2.0/lib/match-objects.html
+#   github re python library source code:
+#   https://github.com/python/cpython/blob/master/Lib/re.py
 # ***************************************************************************
 
 import constant
@@ -32,6 +34,9 @@ class NumType(Enum):
 
 
 def conv_num(str_num):
+    """returns either the integer or float datatype representation of the
+    input string if it is in any one of the acceptable number formats:
+    whole number, decimal point or hexadecimal. Returns None by default"""
     if len(str_num) > 0:
         # try to match the string to an acceptable number format
         str_type_match = num_type(str_num)
@@ -55,6 +60,10 @@ def conv_num(str_num):
 # See the regular expression references in the file header for detailed
 # explanation of the re syntax and the re.match function.
 def num_type(str_num):
+    """Analyzes the input string to see if it matches any of the acceptable
+    numeric formats: whole number, decimal point or hexadecimal. If so,
+    the enum associated with the numeric format type and the re match object
+    is returned as a tuple, otherwise None is returned"""
     # check if string is in acceptable decimal point format
     dec_match = re.match(r'(?P<sign>-*)(?P<int>\d*)\.(?P<frac>\d*$)',
                          str_num, re.ASCII)
@@ -78,6 +87,8 @@ def num_type(str_num):
 
 
 def conv_int(int_match):
+    """Returns the integer representation of the whole number input string
+    represented by the match object parameter"""
     integral = int_match.group('int')
     int_num = 0
     for digit in integral:
@@ -89,6 +100,8 @@ def conv_int(int_match):
 
 
 def conv_dec(dec_match):
+    """Returns the float representation of the decimal point number
+    input string represented by the match object parameter"""
     frac_str = dec_match.group('frac')
     exp = -1
     fraction = 0.0
@@ -105,6 +118,8 @@ def conv_dec(dec_match):
 
 
 def conv_hex(hex_match):
+    """Returns the integer representation of the hexadecimal number
+    input string represented by the match object parameter"""
     hex_vals = hex_match.group('hvals')
     int_num = 0
     for hex_val in hex_vals:
