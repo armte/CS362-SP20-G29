@@ -10,7 +10,7 @@
 # ***************************************************************************
 
 import unittest
-from conv_num import conv_num
+from task import conv_num
 
 
 class TestConvNum(unittest.TestCase):
