@@ -161,8 +161,9 @@ def my_datetime(seconds):
     final_year = curr_year
     final_month, final_days = calc_month_day(curr_number_days, is_leap_year)
 
+    final_date = conv_date_to_string(final_days, final_month, final_year)
 
-    return '01-01-1971'
+    return final_date
 
 
 def check_leap_year(year):
@@ -201,4 +202,12 @@ def calc_month_day(days, is_leap):
     return curr_month_index + 1, days
 
 
+def conv_date_to_string(day, month, year):
+    day_string = str(day)
+    month_string = str(month)
+    year_string = str(year)
 
+    day_string = day_string.zfill(2)
+    month_string = month_string.zfill(2)
+
+    return f"{day_string}-{month_string}-{year_string}"

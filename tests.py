@@ -133,7 +133,7 @@ class TestMyDateTime(unittest.TestCase):
         month = 1
         year = 1970
         expected = '01-01-1970'
-        self.assertEqual(convert_date_to_string(day, month, year), expected)
+        self.assertEqual(conv_date_to_string(day, month, year), expected)
 
 
 if __name__ == "__main__":
