@@ -5,7 +5,7 @@
 # 1-3 will run against.
 # Contributions:
 #   Tommy Armstrong: Test class for function 1 (TestConvNum)
-#   Oliver Solorzano:
+#   Oliver Solorzano: Test class for function 2 (TestMyDateTime)
 #   Andre Pestovski:
 # ***************************************************************************
 
@@ -94,6 +94,13 @@ class TestConvNum(unittest.TestCase):
         val = '-.45'
         expected = -0.45
         self.assertEqual(conv_num(val), expected)
+
+class TestMyDateTime(unittest.TestCase):
+
+    def test2_1(self):  # test to check if function returns proper date format when given seconds
+        val = 86400
+        expected = '01-02-1970'
+        self.assertEqual((my_datetime(val), expected))
 
 
 if __name__ == "__main__":
