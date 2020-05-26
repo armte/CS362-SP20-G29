@@ -159,8 +159,7 @@ def my_datetime(seconds):
             curr_number_days - 365
 
     final_year = curr_year
-
-
+    final_month, final_days = calc_month_day(curr_number_days, is_leap_year)
 
     return '01-01-1971'
 
@@ -180,5 +179,25 @@ def check_leap_year(year):
     # if year is not divisible by 4, it is a common year
     else:
         return False
+
+
+def calc_month_day(days, is_leap):
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+    if is_leap:
+        days_in_month[1] = 29
+
+    finished = False
+    curr_month_index = 0
+
+    while not finished:
+        if days - days_in_month[curr_month_index] >= 0:
+            days = days - days_in_month[curr_month_index]
+            curr_month_index += 1
+        else:
+            finished = True
+
+    return curr_month_index + 1, days
+
 
 
