@@ -62,7 +62,7 @@ def num_type(str_num):
     the enum associated with the numeric format type and the re match object
     is returned as a tuple, otherwise None is returned"""
     # check if string is in acceptable decimal point format
-    dec_match = re.match(r'(?P<sign>-*)(?P<int>\d*)\.(?P<frac>\d*$)',
+    dec_match = re.match(r'(?P<sign>-?)(?P<int>\d*)\.(?P<frac>\d*$)',
                          str_num, re.ASCII)
     if dec_match:
         # check that at least one side of decimal point is not empty
@@ -72,12 +72,12 @@ def num_type(str_num):
                 empty = False
         return (NumType.DEC, dec_match) if not empty else None
     # check if string is in the acceptable hexadecimal format
-    hex_match = re.match(r'(?P<sign>-*)0x(?P<hvals>[0-9a-fA-F]+$)',
+    hex_match = re.match(r'(?P<sign>-?)0x(?P<hvals>[0-9a-fA-F]+$)',
                          str_num, re.ASCII)
     if hex_match:
         return NumType.HEX, hex_match
     # check if string is in the acceptable integer format
-    int_match = re.match(r'(?P<sign>-*)(?P<int>\d+$)', str_num, re.ASCII)
+    int_match = re.match(r'(?P<sign>-?)(?P<int>\d+$)', str_num, re.ASCII)
     if int_match:
         return NumType.INT, int_match
     return None
