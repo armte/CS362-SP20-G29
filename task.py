@@ -157,9 +157,9 @@ def my_datetime(seconds):
 
         # before subtracting days, take into account leap years
         if is_leap_year:
-            curr_number_days - 366
+            curr_number_days -= 366
         else:
-            curr_number_days - 365
+            curr_number_days -= 365
 
     # set final year, get month and day by passing days left and leap year status
     final_year = curr_year
@@ -234,3 +234,5 @@ def conv_date_to_string(day, month, year):
 
     # send back a formatted string
     return f"{month_string}-{day_string}-{year_string}"
+
+print(my_datetime(172800))
