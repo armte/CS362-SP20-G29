@@ -104,7 +104,7 @@ class TestMyDateTime(unittest.TestCase):
 
     def test2_1(self):  # test to check if function returns proper date format when given seconds
         val = 86400
-        expected = '01-01-1971'
+        expected = '01-02-1970'
         self.assertEqual(my_datetime(val), expected)
 
     def test2_2(self):
@@ -118,7 +118,7 @@ class TestMyDateTime(unittest.TestCase):
         self.assertEqual(check_leap_year(val), expected)
 
     def test2_4(self):
-        val = 259200
+        val = 63072000
         expected = '12-31-1972'
         self.assertEqual(check_leap_year(val), expected)
 
