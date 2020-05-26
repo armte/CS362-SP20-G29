@@ -13,6 +13,7 @@ import unittest
 from task import conv_num
 from task import my_datetime
 from task import check_leap_year
+from task import calc_month_day
 
 
 class TestConvNum(unittest.TestCase):
@@ -123,8 +124,8 @@ class TestMyDateTime(unittest.TestCase):
     def test2_5(self):
         val = 90
         isLeap = True
-        expected = 3
-        self.assertEqual(calc_month(90, isLeap), expected)
+        expected = 3, 30
+        self.assertEqual(calc_month_day(90, isLeap), expected)
 
 
 if __name__ == "__main__":
