@@ -118,8 +118,8 @@ class TestMyDateTime(unittest.TestCase):
         self.assertEqual(check_leap_year(val), expected)
 
     def test2_4(self):
-        val = 63072000
-        expected = '12-31-1972'
+        val = 172800
+        expected = '01-03-1970'
         self.assertEqual(check_leap_year(val), expected)
 
     def test2_5(self):

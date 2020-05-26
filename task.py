@@ -166,7 +166,7 @@ def my_datetime(seconds):
     final_month, final_days = calc_month_day(curr_number_days, is_leap_year)
 
     # the previous function returned how many days forward from epoch, so add to epoch day value
-    final_days = final_days + epoch_day;
+    final_days = final_days + epoch_day
 
     # convert to string by calling function
     final_date = conv_date_to_string(final_days, final_month, final_year)
@@ -234,5 +234,3 @@ def conv_date_to_string(day, month, year):
 
     # send back a formatted string
     return f"{month_string}-{day_string}-{year_string}"
-
-print(my_datetime(6307000))
