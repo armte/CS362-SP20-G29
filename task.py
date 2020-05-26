@@ -142,3 +142,21 @@ def my_datetime(seconds):
     epoch_year = 1970
 
     return '01-01-1971'
+
+
+def check_leap_year(year):
+    if (year % 4) == 0:
+        if (year % 100) == 0:
+            # if year is divisible by 400, it is a leap year
+            if (year % 400) == 0:
+                return True
+            # if year is not divisible by 400, it is a common year
+            else:
+                return False
+        # if year is not divisible by 100, it is a leap year
+        else:
+            return True
+    # if year is not divisible by 4, it is a common year
+    else:
+        return False
+
