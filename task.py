@@ -141,6 +141,27 @@ def my_datetime(seconds):
     epoch_month = 1
     epoch_year = 1970
 
+    is_leap_year = False
+
+    # convert seconds to days, since that is our unit of precision
+    calculated_days = (seconds / (60 * 60 * 24))
+
+    curr_year = epoch_year
+    curr_number_days = calculated_days
+
+    while curr_number_days >= 365:
+        curr_year += 1
+        is_leap_year = check_leap_year(curr_year)
+
+        if is_leap_year:
+            curr_number_days - 366
+        else:
+            curr_number_days - 365
+
+    final_year = curr_year
+
+
+
     return '01-01-1971'
 
 
@@ -159,4 +180,3 @@ def check_leap_year(year):
     # if year is not divisible by 4, it is a common year
     else:
         return False
-
