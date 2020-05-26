@@ -14,6 +14,7 @@ from task import conv_num
 from task import my_datetime
 from task import check_leap_year
 from task import calc_month_day
+from task import conv_date_to_string
 
 
 class TestConvNum(unittest.TestCase):
@@ -123,9 +124,16 @@ class TestMyDateTime(unittest.TestCase):
 
     def test2_5(self):
         val = 90
-        isLeap = True
+        is_leap = True
         expected = 3, 30
-        self.assertEqual(calc_month_day(90, isLeap), expected)
+        self.assertEqual(calc_month_day(90, is_leap), expected)
+
+    def test2_6(self):
+        day = 1
+        month = 1
+        year = 1970
+        expected = '01-01-1970'
+        self.assertEqual(convert_date_to_string(day, month, year), expected)
 
 
 if __name__ == "__main__":
