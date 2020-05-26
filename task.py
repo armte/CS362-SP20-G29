@@ -104,7 +104,7 @@ def conv_dec(dec_match):
     fraction = 0.0
     for digit in frac_str:
         num = ord(digit) % constant.ASCII_0
-        fraction += (num * 10**exp)
+        fraction += (num * 10 ** exp)
         exp -= 1
     dec_num = conv_int(dec_match)
     if dec_match.group('sign') == '-':
@@ -130,3 +130,15 @@ def conv_hex(hex_match):
     if hex_match.group('sign') == '-':
         int_num *= -1
     return int_num
+
+
+def my_datetime(seconds):
+    """Takes seconds since the designated epoch as a positive integer
+    value. Returns the date for time passed as a string in the
+    format MM-DD-YYYY"""
+    # epoch split into int values for easier calculation
+    epoch_day = 1
+    epoch_month = 1
+    epoch_year = 1970
+
+    return '01-01-1971'

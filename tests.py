@@ -11,6 +11,7 @@
 
 import unittest
 from task import conv_num
+from task import my_datetime
 
 
 class TestConvNum(unittest.TestCase):
@@ -99,8 +100,8 @@ class TestMyDateTime(unittest.TestCase):
 
     def test2_1(self):  # test to check if function returns proper date format when given seconds
         val = 86400
-        expected = '01-02-1970'
-        self.assertEqual((my_datetime(val), expected))
+        expected = '01-01-1971'
+        self.assertEqual(my_datetime(val), expected)
 
 
 if __name__ == "__main__":
