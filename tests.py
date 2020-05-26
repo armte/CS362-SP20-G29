@@ -12,6 +12,7 @@
 import unittest
 from task import conv_num
 from task import my_datetime
+from task import check_leap_year
 
 
 class TestConvNum(unittest.TestCase):
@@ -96,12 +97,18 @@ class TestConvNum(unittest.TestCase):
         expected = -0.45
         self.assertEqual(conv_num(val), expected)
 
+
 class TestMyDateTime(unittest.TestCase):
 
     def test2_1(self):  # test to check if function returns proper date format when given seconds
         val = 86400
         expected = '01-01-1971'
         self.assertEqual(my_datetime(val), expected)
+
+    def test2_2(self):
+        val = 1971
+        expected = False
+        self.assertEqual(check_leap_year(val), expected)
 
 
 if __name__ == "__main__":
