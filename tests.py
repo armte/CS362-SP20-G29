@@ -110,6 +110,11 @@ class TestMyDateTime(unittest.TestCase):
         expected = False
         self.assertEqual(check_leap_year(val), expected)
 
+    def test2_3(self):
+        val = 2000
+        expected = True
+        self.assertEqual(check_leap_year(val), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
