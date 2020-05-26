@@ -95,6 +95,21 @@ class TestConvNum(unittest.TestCase):
         expected = -0.45
         self.assertEqual(conv_num(val), expected)
 
+    def test17(self):
+        val = '--123.45'
+        expected = None
+        self.assertEqual(conv_num(val), expected)
+
+    def test18(self):
+        val = '--12345'
+        expected = None
+        self.assertEqual(conv_num(val), expected)
+
+    def test19(self):
+        val = '--0xAD4'
+        expected = None
+        self.assertEqual(conv_num(val), expected)
+
 
 if __name__ == "__main__":
     unittest.main()
