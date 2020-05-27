@@ -101,38 +101,91 @@ class TestConvNum(unittest.TestCase):
 
 
 class TestMyDateTime(unittest.TestCase):
-
-    def test2_1(self):  # test to check if function returns proper date format when given seconds
+    # test to check if function returns proper date format when given seconds, one day
+    def test2_1(self):
         val = 86400
         expected = '01-02-1970'
         self.assertEqual(my_datetime(val), expected)
 
+    # test if leap year check function works, pass common year
     def test2_2(self):
         val = 1971
         expected = False
         self.assertEqual(check_leap_year(val), expected)
 
+    # test if leap year function works, pass leap year
     def test2_3(self):
         val = 2000
         expected = True
         self.assertEqual(check_leap_year(val), expected)
 
+    # two days
     def test2_4(self):
         val = 172800
         expected = '01-03-1970'
         self.assertEqual(my_datetime(val), expected)
 
+    # test if month and day are calculated correctly
     def test2_5(self):
         is_leap = True
         expected = 3, 30
         self.assertEqual(calc_month_day(90, is_leap), expected)
 
+    # test if ints are converted to formatted string correctly
     def test2_6(self):
         day = 1
         month = 1
         year = 1970
         expected = '01-01-1970'
         self.assertEqual(conv_date_to_string(day, month, year), expected)
+
+    # one year
+    def test2_7(self):
+        val = 31536000
+        expected = '01-01-1971'
+        self.assertEqual(my_datetime(val), expected)
+
+    # two years, including leap year
+    def test2_8(self):
+        val = 63072000
+        expected = '12-31-1972'
+        self.assertEqual(my_datetime(val), expected)
+
+    # 30 days
+    def test2_9(self):
+        val = 2592000
+        expected = '01-31-1970'
+        self.assertEqual(my_datetime(val), expected)
+
+    # 90 days
+    def test2_10(self):
+        val = 7776000
+        expected = '04-01-1970'
+        self.assertEqual(my_datetime(val), expected)
+
+    # 183 days, half a year
+    def test2_11(self):
+        val = 15811200
+        expected = '07-03-1970'
+        self.assertEqual(my_datetime(val), expected)
+
+    # 0 days
+    def test2_12(self):
+        val = 0
+        expected = '01-01-1970'
+        self.assertEqual(my_datetime(val), expected)
+
+    # example from function2 specs
+    def test2_13(self):
+        val = 123456789
+        expected = '11-29-1973'
+        self.assertEqual(my_datetime(val), expected)
+
+    # example from function2 specs
+    def test2_14(self):
+        val = 9876543210
+        expected = '12-22-2282'
+        self.assertEqual(my_datetime(val), expected)
 
 
 if __name__ == "__main__":
