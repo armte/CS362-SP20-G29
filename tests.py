@@ -148,7 +148,7 @@ class TestMyDateTime(unittest.TestCase):
     # two years, including leap year
     def test2_8(self):
         val = 63072000
-        expected = '12-31-1972'
+        expected = '01-01-1972'
         self.assertEqual(my_datetime(val), expected)
 
     # 30 days
@@ -185,6 +185,18 @@ class TestMyDateTime(unittest.TestCase):
     def test2_14(self):
         val = 9876543210
         expected = '12-22-2282'
+        self.assertEqual(my_datetime(val), expected)
+
+    # three years
+    def test2_15(self):
+        val = 94608000
+        expected = '12-30-1972'
+        self.assertEqual(my_datetime(val), expected)
+
+    # three years and 1 day
+    def test2_16(self):
+        val = 94694400
+        expected = '01-01-1973'
         self.assertEqual(my_datetime(val), expected)
 
 
