@@ -204,8 +204,7 @@ def calc_month_day(days, is_leap):
     if is_leap:
         days_in_month[1] = 29
 
-    # create conditional for while loop, initialize index
-    finished = False
+    # initialize index utilized by while loop
     curr_month_index = 0
 
     # keep subtracting days until you have less than month's worth
