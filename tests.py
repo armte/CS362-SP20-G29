@@ -205,7 +205,7 @@ class TestMyDateTime(unittest.TestCase):
     # three years
     def test2_15(self):
         val = 94608000
-        expected = '12-30-1972'
+        expected = '12-31-1972'
         self.assertEqual(my_datetime(val), expected)
 
     # three years and 1 day

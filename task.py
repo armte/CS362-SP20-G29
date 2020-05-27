@@ -152,15 +152,22 @@ def my_datetime(seconds):
 
     # if number of days is greater than 365, we can increment year count
     while curr_number_days >= 365:
-        curr_year += 1
+        
         is_leap_year = check_leap_year(curr_year)
 
         # before subtracting days, take into account leap years
         if is_leap_year and curr_number_days > 365:
             curr_number_days -= 366
+            curr_year += 1
+        elif is_leap_year and curr_number_days == 365:
+            break
         else:
             curr_number_days -= 365
+            curr_year += 1
 
+    # check leap year status again after adding, for month/day calc
+    is_leap_year = check_leap_year(curr_year)
+    
     # set final year, get month/day by passing days left and leap year status
     final_year = curr_year
     final_month, final_days = calc_month_day(curr_number_days, is_leap_year)
@@ -230,3 +237,4 @@ def conv_date_to_string(day, month, year):
 
     # send back a formatted string
     return f"{month_string}-{day_string}-{year_string}"
+
