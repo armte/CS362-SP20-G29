@@ -101,7 +101,7 @@ class TestConvNum(unittest.TestCase):
 
 
 class TestMyDateTime(unittest.TestCase):
-    # test to check if function returns proper date format when given seconds, one day
+    # test to check if function returns proper date format when given seconds
     def test2_1(self):
         val = 86400
         expected = '01-02-1970'

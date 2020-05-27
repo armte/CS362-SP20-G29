@@ -142,7 +142,7 @@ def my_datetime(seconds):
 
     is_leap_year = False
 
-    # convert seconds to days (in integer format), since that is our unit of precision
+    # convert seconds to days (in integer format), that is unit of precision
     calculated_days = (seconds / (60 * 60 * 24))
     calculated_days = int(calculated_days)
 
@@ -150,7 +150,7 @@ def my_datetime(seconds):
     curr_year = epoch_year
     curr_number_days = calculated_days
 
-    # if number of days is greater than 365, we can move counter forward to next year
+    # if number of days is greater than 365, we can increment year count
     while curr_number_days >= 365:
         curr_year += 1
         is_leap_year = check_leap_year(curr_year)
@@ -161,11 +161,11 @@ def my_datetime(seconds):
         else:
             curr_number_days -= 365
 
-    # set final year, get month and day by passing days left and leap year status
+    # set final year, get month/day by passing days left and leap year status
     final_year = curr_year
     final_month, final_days = calc_month_day(curr_number_days, is_leap_year)
 
-    # the previous function returned how many days forward from epoch, so add to epoch day value
+    # prev func returned days forward from epoch, add to epoch day value
     final_days = final_days + epoch_day
 
     # convert to string by calling function
