@@ -209,12 +209,9 @@ def calc_month_day(days, is_leap):
     curr_month_index = 0
 
     # keep subtracting days until you have less than month's worth
-    while not finished:
-        if days - days_in_month[curr_month_index] >= 0:
-            days = days - days_in_month[curr_month_index]
-            curr_month_index += 1
-        else:
-            finished = True
+    while days - days_in_month[curr_month_index] >= 0:
+        days = days - days_in_month[curr_month_index]
+        curr_month_index += 1
 
     # send back month (index + 1 bc of list offset) and days
     return curr_month_index + 1, days
