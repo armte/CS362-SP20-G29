@@ -10,6 +10,7 @@
 # is no case sensitivity regarding numbers in hexadecimal format.
 # Contributions:
 #   Tommy Armstrong - conv_num function and its associated code/functions
+#   Oliver Solorzano - my_datetime function and its helper functions
 # References:
 # regular expression implementation:
 #   re syntax:
@@ -152,14 +153,21 @@ def my_datetime(seconds):
 
     # if number of days is greater than 365, we can increment year count
     while curr_number_days >= 365:
-        curr_year += 1
+
         is_leap_year = check_leap_year(curr_year)
 
         # before subtracting days, take into account leap years
         if is_leap_year and curr_number_days > 365:
             curr_number_days -= 366
+            curr_year += 1
+        elif is_leap_year and curr_number_days == 365:
+            break
         else:
             curr_number_days -= 365
+            curr_year += 1
+
+    # check leap year status again after adding, for month/day calc
+    is_leap_year = check_leap_year(curr_year)
 
     # set final year, get month/day by passing days left and leap year status
     final_year = curr_year
