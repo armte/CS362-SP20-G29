@@ -55,6 +55,7 @@ def conv_endian(num, endian='big'):
         return hex_string
 
         hex_string = ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
+        # format hex string in byte pairs
 
         return hex_string
         while index > 0:
