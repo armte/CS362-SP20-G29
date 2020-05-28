@@ -26,5 +26,8 @@ class TestConvEndian(unittest.TestCase):
     def test_test7(self):
         self.assertEqual(conv_endian(-954786, 'big'), '-0E 91 A2')
 
+    def test_test7(self):
+        self.assertEqual(conv_endian(568944, 'big'), '08 AE 70') # odd int to hex + 0
+
 if __name__ == "__main__":
     unittest.main()
