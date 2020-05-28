@@ -14,7 +14,7 @@ little-endian
 
 
 def conv_endian(num, endian='big'):
-    # map decimal nums to hex values
+    # map decimal nums to hexadecimals
     mapped_vals = {
         0: "0", 1: "1", 2: "2", 3: "3", 4: "4",
         5: "5", 6: "6", 7: "7", 8: "8", 9: "9",
