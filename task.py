@@ -1,18 +1,3 @@
-"""
-Description: the function takes in an integer value as num and converts it
-to a hexadecimal number. The endian type is determined by the flag endian.
-The function will return the converted number as a string. It has the following
-specifications:
-*It may be assumed that num will always be an integer
-*Must be able to handle negative values for num
-*A value of big for endian will return a hexadecimal number that is big-endian
-*A value of little for endian will return a hexadecimal number that is
-little-endian
-*Any other values of endian will return None
-*The returned string will have each byte separated by a space
-*Each byte must be two characters in length"""
-
-
 def conv_endian(num, endian='big'):
     # map decimal nums to hexadecimals
     mapped_vals = {
