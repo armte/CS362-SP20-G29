@@ -38,25 +38,3 @@ def conv_endian(num, endian='big'):
             hex_string = '-' + hex_string
 
         return hex_string
-
-        hex_string = ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
-        # format hex string in byte pairs
-
-        return hex_string
-        while index > 0:
-            _hex += str[index - 1]
-            # save the value of str[index-1] in reverseString
-            index = index - 1  # decrement index
-            print(_hex)  # reversed string
-        else:
-            return 'None'
-        # add "0" to hex to match requirements' format
-        _hex = '0' + _hex
-        if negative is True:
-            # add "-" to the hex value formatted in pair bytes
-            print("-" + ' '.join(_hex[i:i + 2]for i in range(0, len(_hex), 2)))
-            return "-" + ' '.join(_hex[i:i + 2]for i in range(0, len(_hex), 2))
-        if negative is False:
-            # otherwise return positive hex formatted in paired bytes
-            print(' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2)))
-            return ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
