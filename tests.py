@@ -230,6 +230,7 @@ class TestConvEndian(unittest.TestCase):
 
     def test_endian4(self):
         self.assertEqual(conv_endian(954786, 'little'), 'A2 91 0E')
+        # little endian for reversed str
 
     def test_test5(self):
         self.assertEqual(conv_endian(954786, 'huge'), None)
