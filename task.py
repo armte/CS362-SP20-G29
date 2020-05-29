@@ -257,24 +257,24 @@ def conv_endian(num, endian='big'):
         # make num positive to proceed to calculation
         num *= -1
         # add condition for endian == 'big' or 'little, else return None
-        if endian not in ['big', 'little']:
+    if endian not in ['big', 'little']:
             return None
-        while num > 0:
-            num, remainder = num // 16, num % 16
-            _hex = mapped_vals[remainder] + _hex
 
-        if len(_hex) % 2 == 1:
-            _hex = '0' + _hex
+    while num > 0:
+        num, remainder = num // 16, num % 16
+        _hex = mapped_vals[remainder] + _hex
 
+    if len(_hex) % 2 == 1:
+        _hex = '0' + _hex
         hex_string = ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
 
-        if endian == 'little':
-            # reverse paired string of big endian to create little endian
-            hex_bytes = hex_string.split(' ')
-            little_endian = ' '.join(hex_bytes[::-1])
-            hex_string = little_endian
-            # add "-" for negative hex
-        if negative:
-            hex_string = '-' + hex_string
+    if endian == 'little':
+        # reverse paired string of big endian to create little endian
+        hex_bytes = hex_string.split(' ')
+        little_endian = ' '.join(hex_bytes[::-1])
+        hex_string = little_endian
+        # add "-" for negative hex
+    if negative:
+        hex_string = '-' + hex_string
 
-        return hex_string
+    return hex_string
