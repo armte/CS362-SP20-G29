@@ -256,11 +256,9 @@ def conv_endian(num, endian='big'):
         negative = True
         # make num positive to proceed to calculation
         num *= -1
-    while num > 0:
         # add condition for endian == 'big' or 'little, else return None
         if endian not in ['big', 'little']:
             return None
-
         while num > 0:
             num, remainder = num // 16, num % 16
             _hex = mapped_vals[remainder] + _hex
