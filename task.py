@@ -11,6 +11,7 @@
 # Contributions:
 #   Tommy Armstrong - conv_num function and its associated code/functions
 #   Oliver Solorzano - my_datetime function and its helper functions
+#   Andre Pestovski - conv_endian function
 # References:
 # regular expression implementation:
 #   re syntax:
