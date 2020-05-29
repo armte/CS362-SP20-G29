@@ -7,7 +7,7 @@
 # Contributions:
 #   Tommy Armstrong: Test class for function 1 (TestConvNum)
 #   Oliver Solorzano: Test class for function 2 (TestMyDateTime)
-#   Andre Pestovski:
+#   Andre Pestovski: Test class for function 3 (TestConvEnd)
 # ***************************************************************************
 
 import unittest
