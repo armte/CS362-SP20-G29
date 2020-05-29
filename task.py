@@ -258,7 +258,7 @@ def conv_endian(num, endian='big'):
         num *= -1
         # add condition for endian == 'big' or 'little, else return None
     if endian not in ['big', 'little']:
-            return None
+        return None
 
     while num > 0:
         num, remainder = num // 16, num % 16
