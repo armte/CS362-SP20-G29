@@ -1,3 +1,4 @@
+# **************************************************************************
 # CS 362: Software Engineering II
 # Group 29: Tommy Armstrong, Oliver Solorzano, Andre Pestovski
 # Assignment: Group Project - Part 2
@@ -15,6 +16,7 @@ from task import my_datetime
 from task import check_leap_year
 from task import calc_month_day
 from task import conv_date_to_string
+from task import conv_endian
 
 
 class TestConvNum(unittest.TestCase):
@@ -213,6 +215,34 @@ class TestMyDateTime(unittest.TestCase):
         val = 94694400
         expected = '01-01-1973'
         self.assertEqual(my_datetime(val), expected)
+
+
+class TestConvEndian(unittest.TestCase):
+
+    def test_endian1(self):
+        self.assertEqual(conv_endian(954786), '0E 91 A2')
+
+    def test_endian2(self):
+        self.assertEqual(conv_endian(-954786), '-0E 91 A2')
+
+    def test_endian3(self):
+        self.assertEqual(conv_endian(954786, 'big'), '0E 91 A2')
+
+    def test_endian4(self):
+        self.assertEqual(conv_endian(954786, 'little'), 'A2 91 0E')
+        # little endian for reversed str
+
+    def test_test5(self):
+        self.assertEqual(conv_endian(954786, 'huge'), None)
+
+    def test_test6(self):
+        self.assertEqual(conv_endian(954786, ' '), None)
+
+    def test_test7(self):
+        self.assertEqual(conv_endian(-954786, 'big'), '-0E 91 A2')
+
+    def test_test7a(self):
+        self.assertEqual(conv_endian(568944, 'big'), '08 AE 70')  # odd int
 
 
 if __name__ == "__main__":
