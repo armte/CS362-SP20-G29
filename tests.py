@@ -253,6 +253,9 @@ class TestConvEndian(unittest.TestCase):
     def test_test11(self):
         self.assertEqual(conv_endian(1784345, 'little'), '19 3A 1B')
 
+    def test_test12(self):
+        self.assertEqual(conv_endian(143292, 'little'), 'BC 2F 02')
+
 
 if __name__ == "__main__":
     unittest.main()
