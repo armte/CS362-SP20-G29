@@ -9,8 +9,10 @@
 # integer or float datatype value. Negative numbers are accepted and there
 # is no case sensitivity regarding numbers in hexadecimal format.
 # Contributions:
-#   Tommy Armstrong - conv_num function and its associated code/functions
+#   Tommy Armstrong - conv_num function and its associated code/functions,
+#                     part of conv_endian function code
 #   Oliver Solorzano - my_datetime function and its helper functions
+#   Andre Pestovski - conv_endian function
 # References:
 # regular expression implementation:
 #   re syntax:
