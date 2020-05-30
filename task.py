@@ -9,7 +9,8 @@
 # integer or float datatype value. Negative numbers are accepted and there
 # is no case sensitivity regarding numbers in hexadecimal format.
 # Contributions:
-#   Tommy Armstrong - conv_num function and its associated code/functions
+#   Tommy Armstrong - conv_num function and its associated code/functions,
+#                     part of conv_endian function code
 #   Oliver Solorzano - my_datetime function and its helper functions
 #   Andre Pestovski - conv_endian function
 # References:
@@ -270,7 +271,8 @@ def conv_endian(num, endian='big'):
 
     if len(_hex) % 2 == 1:
         _hex = '0' + _hex
-        hex_string = ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
+
+    hex_string = ' '.join(_hex[i:i + 2] for i in range(0, len(_hex), 2))
 
     if endian == 'little':
         # reverse paired string of big endian to create little endian
