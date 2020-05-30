@@ -245,7 +245,7 @@ class TestConvEndian(unittest.TestCase):
         self.assertEqual(conv_endian(568944, 'big'), '08 AE 70')  # odd int
 
     def test_test9(self):
-        self.assertEqual(conv_endian(1784345, 'big'), '1B 3A 19')  #even int
+        self.assertEqual(conv_endian(1784345, 'big'), '1B 3A 19')  # even int
 
     def test_test10(self):
         self.assertEqual(conv_endian(1784345), '1B 3A 19')
