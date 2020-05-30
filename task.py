@@ -249,14 +249,17 @@ def conv_endian(num, endian='big'):
         14: "E", 15: "F",
     }
     assert num == int(num)
+
     _hex = ""
     negative = False
+
     if num < 0:
         # set negative flag
         negative = True
         # make num positive to proceed to calculation
         num *= -1
-        # add condition for endian == 'big' or 'little, else return None
+
+    # add condition for endian == 'big' or 'little, else return None
     if endian not in ['big', 'little']:
         return None
 
@@ -273,7 +276,8 @@ def conv_endian(num, endian='big'):
         hex_bytes = hex_string.split(' ')
         little_endian = ' '.join(hex_bytes[::-1])
         hex_string = little_endian
-        # add "-" for negative hex
+
+    # add "-" for negative hex
     if negative:
         hex_string = '-' + hex_string
 
