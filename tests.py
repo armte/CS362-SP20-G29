@@ -257,7 +257,7 @@ class TestConvEndian(unittest.TestCase):
         self.assertEqual(conv_endian(-143292, 'little'), '-BC 2F 02')
 
     def test_test13(self):
-        self.assertEqual(conv_endian(-8653819, 'big'), '-84 0B FB')
+        self.assertEqual(conv_endian(-8653819, 'big'), '-84 0B FB')  # even,-
 
 
 if __name__ == "__main__":
